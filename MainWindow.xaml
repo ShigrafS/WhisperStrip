@@ -1,0 +1,76 @@
+<Window x:Class="WhisperStrip.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WhisperStrip Settings"
+        Height="450" Width="400">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Texts to display:" FontWeight="Bold" Margin="0,0,0,5"/>
+        
+        <ListBox x:Name="TextsList" Grid.Row="1" Margin="0,0,0,5"/>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,0,0,10">
+            <TextBox x:Name="NewTextInput" Width="220" Margin="0,0,5,0" VerticalAlignment="Center"/>
+            <Button Content="Add" Width="60" Click="AddText_Click" Margin="0,0,5,0"/>
+            <Button Content="Delete" Width="60" Click="DeleteText_Click"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3">
+            <CheckBox x:Name="UseRandomCheck" Content="Use Randomized Timers" Checked="UseRandomCheck_Changed" Unchecked="UseRandomCheck_Changed" Margin="0,10,0,5" FontWeight="Bold"/>
+
+            <Grid x:Name="TimersGrid" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Show Values -->
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Show Time (sec):" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                
+                <StackPanel x:Name="ShowRandomPanel" Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Visibility="Collapsed">
+                    <TextBlock Text="Min:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="ShowMinInput" Width="40" Margin="0,0,10,0"/>
+                    <TextBlock Text="Max:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="ShowMaxInput" Width="40"/>
+                </StackPanel>
+
+                <StackPanel x:Name="ShowExactPanel" Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Visibility="Visible">
+                    <TextBox x:Name="ShowExactInput" Width="50" Margin="0,0,10,0"/>
+                </StackPanel>
+
+                <!-- Hide Values -->
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Hide Time (sec):" VerticalAlignment="Center" Margin="0,0,10,5"/>
+
+                <StackPanel x:Name="HideRandomPanel" Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Visibility="Collapsed">
+                    <TextBlock Text="Min:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="HideMinInput" Width="40" Margin="0,0,10,0"/>
+                    <TextBlock Text="Max:" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                    <TextBox x:Name="HideMaxInput" Width="40"/>
+                </StackPanel>
+
+                <StackPanel x:Name="HideExactPanel" Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Visibility="Visible">
+                    <TextBox x:Name="HideExactInput" Width="50" Margin="0,0,10,0"/>
+                </StackPanel>
+
+                <!-- Rotate Time -->
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Rotate texts every (sec):" VerticalAlignment="Center" Margin="0,0,10,5"/>
+                <TextBox x:Name="RotateInput" Grid.Row="2" Grid.Column="1" Width="50" HorizontalAlignment="Left" Margin="0,0,0,5"/>
+            </Grid>
+
+            <Button Content="Save &amp; Apply" Click="Save_Click" Height="30" FontWeight="Bold" Margin="0,0,0,5"/>
+            <Button Content="Quit WhisperStrip Completely" Click="Quit_Click" Height="25" Background="#FFEDDADA"/>
+        </StackPanel>
+    </Grid>
+</Window>
