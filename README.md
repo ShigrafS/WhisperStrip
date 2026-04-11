@@ -2,7 +2,7 @@
 
 **Ambient reminders for a focused mind. Lightweight, native, and out of your way.**
 
-[![Build & Release](https://github.com/[USERNAME]/WhisperStrip/actions/workflows/release.yml/badge.svg)](https://github.com/[USERNAME]/WhisperStrip/actions)
+[![Build & Release](https://github.com/ShigrafS/WhisperStrip/actions/workflows/release.yml/badge.svg)](https://github.com/ShigrafS/WhisperStrip/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![.NET 8.0](https://img.shields.io/badge/.NET-8.0-blue.svg)](https://dotnet.microsoft.com/download/dotnet/8.0)
 
@@ -30,7 +30,7 @@ WhisperStrip is a minimalist Windows utility that gently nudges you with custom 
 
 ### Installation
 
-1. Download the latest release from the [Releases page](https://github.com/[USERNAME]/WhisperStrip/releases).
+1. Download the latest release from the [Releases page](https://github.com/ShigrafS/WhisperStrip/releases).
 2. Extract the `WhisperStrip-win-x64.zip`.
 3. Run `WhisperStrip.exe`.
 
@@ -59,7 +59,7 @@ WhisperStrip saves your preferences in `%LOCALAPPDATA%\WhisperStrip\settings.jso
 ### Building from Source
 ```powershell
 # Clone the repository
-git clone https://github.com/[USERNAME]/WhisperStrip.git
+git clone https://github.com/ShigrafS/WhisperStrip.git
 
 # Build the project
 dotnet build -c Release
