@@ -10,11 +10,11 @@ public class StripManager
 {
     public static StripManager Instance { get; } = new StripManager();
 
-    private StripWindow _Window;
-    private DispatcherTimer visibilityTimer;
-    private DispatcherTimer textTimer;
+    private StripWindow _Window = null!;
+    private DispatcherTimer visibilityTimer = null!;
+    private DispatcherTimer? textTimer;
 
-    private AppSettings _settings;
+    private AppSettings _settings = null!;
 
     private int _idx = 0;
     private Random rnd = new();
@@ -41,7 +41,7 @@ public class StripManager
         ScheduleNextAppearance();
     }
 
-    private void Visibility_Tick(object sender, EventArgs e)
+    private void Visibility_Tick(object? sender, EventArgs e)
     {
         if (_Window.IsVisible)
         {

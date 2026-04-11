@@ -6,7 +6,7 @@ namespace WhisperStrip;
 
 public class TrayService
 {
-    private static NotifyIcon _trayIcon;
+    private static NotifyIcon _trayIcon = null!;
 
     public static void Initialize()
     {
