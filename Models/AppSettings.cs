@@ -26,6 +26,8 @@ public class AppSettings
 
     public int RotateInterval { get; set; } = 20;
 
+    public string Position { get; set; } = "Left";
+
     public static string SettingsFilePath 
     {
         get

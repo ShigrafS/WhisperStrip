@@ -43,9 +43,21 @@ public class StripManager
         
         _settings = AppSettings.Load();
 
+        ApplyPosition();
+
         visibilityTimer = new DispatcherTimer();
         visibilityTimer.Tick += Visibility_Tick;
         ScheduleNextAppearance();
+    }
+
+    private void ApplyPosition()
+    {
+        var screenWidth = SystemParameters.PrimaryScreenWidth;
+        
+        if (_settings.Position == "Right")
+            _Window.Left = screenWidth - 320;
+        else
+            _Window.Left = 0;
     }
 
     public void ReloadSettings()
@@ -131,8 +143,15 @@ public class StripManager
     public void CyclePosition()
     {
         if (_Window.Left < 100)
+        {
             _Window.Left = SystemParameters.PrimaryScreenWidth - 320;
+            _settings.Position = "Right";
+        }
         else
+        {
             _Window.Left = 0;
+            _settings.Position = "Left";
+        }
+        _settings.Save();
     }
 }
