@@ -15,9 +15,27 @@ public class StripManager
     private DispatcherTimer? textTimer;
 
     private AppSettings _settings = null!;
+    private bool _isPaused = false;
 
     private int _idx = 0;
     private Random rnd = new();
+
+    public bool IsPaused => _isPaused;
+
+    public void TogglePause()
+    {
+        _isPaused = !_isPaused;
+        if (_isPaused)
+        {
+            _Window.Hide();
+            textTimer?.Stop();
+            visibilityTimer.Stop();
+        }
+        else
+        {
+            ScheduleNextAppearance();
+        }
+    }
 
     public void Start()
     {
@@ -43,6 +61,8 @@ public class StripManager
 
     private void Visibility_Tick(object? sender, EventArgs e)
     {
+        if (_isPaused) return;
+
         if (_Window.IsVisible)
         {
             _Window.Hide();

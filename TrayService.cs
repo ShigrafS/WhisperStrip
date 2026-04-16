@@ -23,6 +23,14 @@ public class TrayService
         settingsItem.Click += (s, e) => { new MainWindow().Show(); };
         menu.Items.Add(settingsItem);
 
+        var pauseItem = new ToolStripMenuItem("Pause");
+        pauseItem.Click += (s, e) =>
+        {
+            StripManager.Instance.TogglePause();
+            pauseItem.Text = StripManager.Instance.IsPaused ? "Resume" : "Pause";
+        };
+        menu.Items.Add(pauseItem);
+
         menu.Items.Add(new ToolStripSeparator());
 
         var exitItem = new ToolStripMenuItem("Exit WhisperStrip");
