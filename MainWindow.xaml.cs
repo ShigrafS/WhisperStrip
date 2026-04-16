@@ -25,6 +25,7 @@ public partial class MainWindow : Window
             TextsList.Items.Add(t);
         }
 
+        PauseCheck.IsChecked = StripManager.Instance.IsPaused;
         UseRandomCheck.IsChecked = _settings.UseRandomTimers;
         
         ShowMinInput.Text = _settings.ShowMin.ToString();
@@ -63,6 +64,14 @@ public partial class MainWindow : Window
         // small hack to avoid nullref during initialize
         if (ShowRandomPanel != null)
             UpdatePanels();
+    }
+
+    private void PauseCheck_Changed(object sender, RoutedEventArgs e)
+    {
+        if (PauseCheck.IsChecked == true && !StripManager.Instance.IsPaused)
+            StripManager.Instance.TogglePause();
+        else if (PauseCheck.IsChecked == false && StripManager.Instance.IsPaused)
+            StripManager.Instance.TogglePause();
     }
 
     private void AddText_Click(object sender, RoutedEventArgs e)
