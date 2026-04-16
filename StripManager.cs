@@ -27,7 +27,7 @@ public class StripManager
         _isPaused = !_isPaused;
         if (_isPaused)
         {
-            _Window.Hide();
+            _Window.FadeOut();
             textTimer?.Stop();
             visibilityTimer.Stop();
         }
@@ -77,7 +77,7 @@ public class StripManager
 
         if (_Window.IsVisible)
         {
-            _Window.Hide();
+            _Window.FadeOut();
             textTimer?.Stop();
             ScheduleNextAppearance();
         }
@@ -94,10 +94,10 @@ public class StripManager
             return; 
         }
 
-        // start with a random phrase
         _idx = rnd.Next(0, _settings.Texts.Count);
+        // start with a random phrase
         _Window.UpdateText(_settings.Texts[_idx]);
-        _Window.Show();
+        _Window.FadeIn();
 
         StartTextRotation();
 
